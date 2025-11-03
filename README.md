@@ -3,8 +3,6 @@
 ---
 
 ## 📋 Table of Contents
-
-- [Features](#-features)
 - [Installation](#-installation)
 - [Dataset Access](#-dataset-access)
 - [Configuration](#-configuration)
@@ -239,4 +237,5 @@ If you use this code in your research, please cite:
   year={2024}
 }
 ```
+
 
