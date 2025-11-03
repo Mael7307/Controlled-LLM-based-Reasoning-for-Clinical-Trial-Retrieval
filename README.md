@@ -1,6 +1,4 @@
-# 🏥 OntoTrial: Clinical Trial Retrieval with Ontology-Based Ranking
-
-A comprehensive system for clinical trial retrieval and ranking using ontology-based methods, SNOMED-CT integration, and LLM-based fine-grained eligibility assessment.
+# 🏥 Controlled LLM-based reasoning for clinical trial retrieval
 
 ---
 
@@ -15,17 +13,6 @@ A comprehensive system for clinical trial retrieval and ranking using ontology-b
 - [Model API](#-model-api)
 - [Evaluation](#-evaluation)
 - [Citation](#-citation)
-- [License](#-license)
-
----
-
-## ✨ Features
-
-- ✅ **SNOMED-CT Integration**: Uses pymedtermino2 for ontology-based trial matching
-- ✅ **Multi-Provider LLM Support**: Supports both Ollama (local models) and OpenAI APIs
-- ✅ **Fine-Grained Evaluation**: LLM-based assessment of inclusion/exclusion criteria
-- ✅ **Comprehensive Evaluation**: Uses trectools for standard IR evaluation metrics
-- ✅ **Structured Pipeline**: Modular processing pipeline for topic processing, trial structuring, and labeling
 
 ---
 
@@ -33,8 +20,8 @@ A comprehensive system for clinical trial retrieval and ranking using ontology-b
 
 ### 1. Clone this repo
 ```bash
-git clone <repository-url>
-cd OntoTrial
+git clone https://github.com/Mael7307/Controlled-LLM-based-Reasoning-for-Clinical-Trial-Retrieval.git
+cd Controlled-LLM-based-Reasoning-for-Clinical-Trial-Retrieval
 ```
 
 ### 2. Install dependencies
@@ -73,7 +60,7 @@ data/raw/ClinicalTrials.2021-04-27/
 
 The TREC 2022 Clinical Trials Track topics and qrels should be placed in `data/raw/`:
 - `topics2022.xml` - Topic descriptions
-- `TREC_2022_qrels.txt` - Relevance judgments
+- `TREC_2022_qrels.txt` - Gold Relevance judgments
 
 ### 📌 UMLS/SNOMED-CT Data
 
@@ -245,25 +232,11 @@ Results are saved in the `results/` directory with standard TREC formatting.
 If you use this code in your research, please cite:
 
 ```bibtex
-@article{ontotrial2024,
-  title={OntoTrial: Clinical Trial Retrieval with Ontology-Based Ranking},
-  author={[Your Name]},
-  journal={[Journal/Conference]},
+@article{jullien2024controlled,
+  title={Controlled LLM-based reasoning for clinical trial retrieval},
+  author={Jullien, Mael and Bogatu, Alex and Unsworth, Harriet and Freitas, Andre},
+  journal={arXiv preprint arXiv:2409.18998},
   year={2024}
 }
 ```
 
----
-
-## 📜 License
-
-[Add your license here]
-
----
-
-## 🙏 Acknowledgments
-
-- [TREC 2022 Clinical Trials Track](https://www.trec-cds.org/2022.html)
-- [SNOMED-CT / UMLS](https://www.nlm.nih.gov/research/umls/)
-- [ClinicalTrials.gov](https://clinicaltrials.gov/)
-- [pymedtermino2](https://owlready2.readthedocs.io/en/latest/pymedtermino2.html)
