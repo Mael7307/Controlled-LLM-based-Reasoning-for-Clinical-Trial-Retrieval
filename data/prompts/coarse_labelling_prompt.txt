@@ -1,0 +1,33 @@
+(Instructions)
+Given a patient profile and a set of clinical trial criteria, determine if the patient is eligible for the trial. If the patient satisfies the critieria return the following {'label': 'eligible'}, if the patient is excluded from the trial return {'label': 'excluded'}.
+
+(Example 1): 
+(Inclusion Criteria):
+Trial for patients with advanced NSCLC.
+Must have received at least one prior line of systemic therapy.
+No brain metastases.
+ECOG performance status of 0-2.
+Adequate organ function as evidenced by laboratory values.
+No significant cardiac history.
+
+(Patient Profile):
+"John Doe is a 58-year-old male with a diagnosis of advanced non-small cell lung cancer (NSCLC). He has a performance status of 1, indicating that he is capable of self-care but unable to carry out any work activities. John has received one prior line of systemic therapy and has no known brain metastases. His laboratory values are within normal limits, and he has no history of significant cardiac disease.""
+
+Output: {'label': 'eligible'}
+
+(Example 2): 
+(Inclusion Criteria):
+Trial for patients with early-stage lung cancer or small cell lung cancer.
+Treatment-naïve patients or those who have received more than two prior lines of therapy.
+Presence of brain metastases.
+ECOG performance status of 3 or higher.
+Abnormal liver or kidney function tests.
+History of significant cardiac disease, such as myocardial infarction in the past 6 months.
+
+(Patient Profile):
+"John Doe is a 58-year-old male with a diagnosis of advanced non-small cell lung cancer (NSCLC). He has a performance status of 1, indicating that he is capable of self-care but unable to carry out any work activities. John has received one prior line of systemic therapy and has no known brain metastases. His laboratory values are within normal limits, and he has no history of significant cardiac disease.""
+
+Output: {'label': 'excluded'}
+
+
+Input:

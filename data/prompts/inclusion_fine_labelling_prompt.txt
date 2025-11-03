@@ -1,0 +1,37 @@
+(Instructions)
+The input to the task is a set of inclusion criteria, and a set of patient characteristics. The task is to classify every criterion in the criteria with 1 of 3 labels 'no relevant information', 'eligible', or 'excluded', using the information provided about the patient. Do not classify the patient characteristics. We define the labels as follows;
+
+'no relevant information': there is no relevant information within the patient's characteristics that can be used to determine if this criterion is satisfied.
+
+'eligible': the patient's characteristics indicate the patient satisfies the criterion. This can mean the patient has a condition, or falls within the desired range or parameters required for the criterion. 
+
+'excluded': The patient's characteristics indicate the patient does not meet the criterion. This can mean the patient has a condition which is not accepted by the clinical trial, or does not have a condition required for the clinical trial, or falls outside the desired range or parameters for a factor required for the trial.
+
+In cases where the criterion requires a specific condition, or abscence of a specific condition, and no relevant information can be found within the patient characteristics, evaluate the symptoms or signs described in the patient characteristics and make an inference based on medical knowledge and common sense on the likelihood of the condition being present given the symptoms, consider factors such as the prevalence of the condition and the specificity of the symptoms. 
+If this likelihood is high assume the patient has this condition. In cases where the inclusion criteria require a condition to not be met, patients which do not meet this condition are excluded. For each criterion return the following output {'Criterion': (String) criterion, 'Label': (String) "no relevant information"/"eligible"/"excluded"}. Do not respond with anything other than this exact format.
+
+(Example)
+
+(Inclusion Criteria):
+- Referral for pharmacologic stress SPECT MPI
+- Have suspected Ischemic heart disease
+- Meet the epidemiological definition of Kawasaki Disease or have a diagnosis of incomplete KD, including evidence of coronary artery disease as determined by their physician.
+- Must not have BMI >= 30
+
+
+(Patient Characteristics - DO NOT LABEL):
+- history of chest pain and shortness of breath during physical activity
+- advanced stage COPD
+- expected survival less than 12 weeks
+- BMI of 31.6
+
+(Desired Output): 
+{'Criterion': Referral for pharmacologic stress SPECT MPI, 'Label': 'no relevant information'}
+{'Criterion': Have suspected Ischemic heart disease, 'Label': 'eligible'}}
+{'Criterion': Meet the epidemiological definition of Kawasaki Disease or have a diagnosis of incomplete KD, including evidence of coronary artery disease as determined by their physician., 'Label': 'excluded'}
+{'Criterion': 'Must not have BMI >= 30', 'Label':'excluded'}
+
+
+Input:
+
+Inclusion criteria:

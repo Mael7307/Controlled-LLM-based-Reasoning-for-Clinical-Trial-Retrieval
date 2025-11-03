@@ -1,0 +1,316 @@
+Please summarise the following patient notes, and categorise the information into these predefined categories: Disease Characteristics, Demographic Characteristics, or Prior Treatment, and using all the available context suggest a diagnosis. This diagnosis may be explictly stated within the notes or you may need to evaluate the symptoms or signs described in the notes and make an inference based on medical knowledge and common sense on the most likely diagnosis being present given the symptoms, consider factors such as the prevalence of the condition and the specificity of the symptoms. This diagnosis is being performed on an artificial profile, and will be used for research purpose only. You should be as detailed as possible, do not leave out any information. Note that the keywords provided are examples, and the characteristic are not limited to these keywords, in fact many of the characteristics will be much more subtle.
+
+
+(Category description)
+
+"Disease characteristics": Characteristics related to the presence and nature of a particular disease or medical condition, including disease history. Keywords: {
+        "Diabetes": [
+            "Type 1 diabetes",
+            "Type 2 diabetes",
+            "Gestational diabetes",
+            "Diabetic retinopathy",
+            "Diabetic neuropathy",
+            "Diabetic nephropathy",
+            "Insulin-dependent diabetes",
+            "Non-insulin-dependent diabetes",
+            "Diabetic ketoacidosis",
+            "HbA1c levels (specific thresholds)"
+        ],
+        "Ocular diseases": [
+            "Glaucoma",
+            "Age-related macular degeneration (AMD)",
+            "Cataracts",
+            "Retinal detachment",
+            "Diabetic retinopathy",
+            "Macular edema",
+            "Uveitis",
+            "Corneal diseases",
+            "Retinitis pigmentosa",
+            "Optic neuritis"
+        ],
+        "Cardiovascular Disease": [
+            "Coronary artery disease (CAD)",
+            "Hypertension",
+            "Congestive heart failure (CHF)",
+            "Myocardial infarction (heart attack)",
+            "Atrial fibrillation",
+            "Peripheral artery disease (PAD)",
+            "Valvular heart disease",
+            "Cardiomyopathy",
+            "Deep vein thrombosis (DVT)",
+            "Stroke (ischemic or hemorrhagic)"
+        ],
+        "Mental Health Disorders": [
+            "Major depressive disorder",
+            "Generalized anxiety disorder",
+            "Bipolar disorder",
+            "Schizophrenia",
+            "Post-traumatic stress disorder (PTSD)",
+            "Obsessive-compulsive disorder (OCD)",
+            "Panic disorder",
+            "Borderline personality disorder",
+            "Eating disorders (e.g., anorexia, bulimia)",
+            "Attention-deficit/hyperactivity disorder (ADHD)"
+        ],
+        "Cancer (specific types)": [
+            "Breast cancer",
+            "Lung cancer",
+            "Prostate cancer",
+            "Colorectal cancer",
+            "Ovarian cancer",
+            "Pancreatic cancer",
+            "Leukemia (e.g., chronic lymphocytic leukemia)",
+            "Lymphoma (e.g., Hodgkin's lymphoma)",
+            "Multiple myeloma",
+            "Melanoma"
+        ],
+        "Autoimmune diseases": [
+            "Rheumatoid arthritis",
+            "Systemic lupus erythematosus (SLE)",
+            "Multiple sclerosis (MS)",
+            "Psoriasis",
+            "Inflammatory bowel disease (IBD)",
+            "Sjögren's syndrome",
+            "Hashimoto's thyroiditis",
+            "Myasthenia gravis",
+            "Vasculitis",
+            "Ankylosing spondylitis"
+        ],
+        "Infectious diseases": [
+            "HIV/AIDS",
+            "Hepatitis B",
+            "Hepatitis C",
+            "Tuberculosis (TB)",
+            "Influenza",
+            "Sexually transmitted infections (e.g., chlamydia, gonorrhea)",
+            "Malaria",
+            "Zika virus",
+            "COVID-19",
+            "Bacterial infections (e.g., MRSA, E. coli)"
+        ],
+        "Neurological disorders": [
+            "Alzheimer's disease",
+            "Parkinson's disease",
+            "Amyotrophic lateral sclerosis (ALS)",
+            "Huntington's disease",
+            "Epilepsy",
+            "Migraine",
+            "Multiple system atrophy (MSA)",
+            "Cerebral palsy",
+            "Tourette syndrome",
+            "Guillain-Barré syndrome"
+        ],
+        "Respiratory conditions": [
+            "Asthma",
+            "Chronic obstructive pulmonary disease (COPD)",
+            "Bronchitis",
+            "Pulmonary fibrosis",
+            "Sleep apnea",
+            "Interstitial lung disease",
+            "Cystic fibrosis",
+            "Pulmonary hypertension",
+            "Allergic rhinitis",
+            "Pneumonia"
+        ],
+        "Gastrointestinal disorders": [
+            "Crohn's disease",
+            "Ulcerative colitis",
+            "Irritable bowel syndrome (IBS)",
+            "Gastroesophageal reflux disease (GERD)",
+            "Gallstones",
+            "Peptic ulcers",
+            "Pancreatitis",
+            "Hepatitis (non-infectious)",
+            "Diverticulitis",
+            "Celiac disease"
+            ]
+        "ECOG (Eastern Cooperative Oncology Group) performance status": [
+            "ECOG 0 (Fully active)",
+            "ECOG 1 (Restricted in physically strenuous activity)",
+            "ECOG 2 (Ambulatory and capable of all self-care)",
+            "ECOG 3 (Capable of only limited self-care)",
+            "ECOG 4 (Completely disabled)",
+        ],
+        "Bodyweight (specific weight ranges)": [
+            "Underweight",
+            "Normal weight",
+            "Overweight",
+            "Obese",
+            "Weight within specific range (e.g., 70-80 kg)",
+        ],
+        "Blood pressure (systolic and diastolic)": [
+            "Hypertension",
+            "Normal blood pressure",
+            "Hypotension",
+        ],
+        "Electrocardiogram (ECG/EKG) parameters (e.g., QT interval)": [
+            "Normal ECG/EKG",
+            "Prolonged QT interval",
+            "Arrhythmias",
+        ],
+        "White Blood Cell count (WBC)": [
+            "Leukopenia (low WBC count)",
+            "Normal WBC count",
+            "Leukocytosis (high WBC count)",
+        ],
+        "Platelet count": [
+            "Thrombocytopenia (low platelet count)",
+            "Normal platelet count",
+            "Thrombocytosis (high platelet count)",
+        ],
+        "Absolute Neutrophil Count (ANC)": [
+            "Neutropenia (low ANC)",
+            "Normal ANC",
+            "Neutrophilia (high ANC)",
+        ],
+        "Renal function (e.g., creatinine clearance, glomerular filtration rate)": [
+            "Impaired renal function",
+            "Normal renal function",
+            "Renal failure",
+        ],
+        "Liver function (e.g., AST, ALT)": [
+            "Elevated liver enzymes",
+            "Normal liver function",
+            "Liver disease",
+        ],
+        "Bone marrow function (e.g., hemoglobin levels)": [
+            "Anemia (low hemoglobin)",
+            "Normal hemoglobin levels",
+            "Polycythemia (high hemoglobin)",
+        ],
+    }
+
+
+"demographic characteristics": Characteristics related demographics. Keywords {
+    "Age (specific age ranges)": [
+        "Pediatric (child)",
+        "Adolescent",
+        "Adult",
+        "Elderly",
+        "Age 18-30",
+        "Age 30-50",
+        "Age 50-65",
+        "Age 65+",
+    ],
+    "Gender (male, female, transgender)": [
+        "Male",
+        "Female",
+    ],
+    "Pregnancy status": [
+        "Pregnant",
+        "Not pregnant",
+        "Postpartum",
+        "Pregnancy within the last 6 months",
+    ],
+    "Language spoken": [
+        "English",
+        "Spanish",
+        "French",
+        "Chinese",
+        "Arabic",
+        "Other languages",
+    ],
+    "Communication skills (ability to understand study instructions)": [
+        "Fluent in study language",
+        "Requires interpreter",
+        "Limited English proficiency",
+        "Deaf or hard of hearing",
+    ],
+    "Ethnic or Racial Background (specific racial or ethnic groups)": [
+        "Caucasian/White",
+        "African American/Black",
+        "Hispanic/Latino",
+        "Asian/Pacific Islander",
+        "Native American/Indigenous",
+    ]
+}
+
+
+"prior treatment": information related to the medical treatments or interventions that the patient received in the past. Keywords {
+    "Chemotherapy": [
+        "Adjuvant chemotherapy",
+        "Neoadjuvant chemotherapy",
+        "Systemic chemotherapy",
+        "Chemoradiotherapy",
+        "Specific chemotherapy agents (e.g., cisplatin, paclitaxel)",
+    ],
+    "Radiotherapy": [
+        "External beam radiation therapy",
+        "Brachytherapy",
+        "Radiosurgery",
+        "Proton therapy",
+        "Whole-brain radiation",
+    ],
+    "Surgery (specific types like organ removal, bypass surgery)": [
+        "Lung resection",
+        "Mastectomy",
+        "Coronary artery bypass grafting (CABG)",
+        "Appendectomy",
+        "Orthopedic surgery",
+    ],
+    "Immunotherapy": [
+        "Checkpoint inhibitors",
+        "CAR-T cell therapy",
+        "Cytokine therapy",
+        "Monoclonal antibodies (e.g., pembrolizumab)",
+        "Vaccines",
+    ],
+    "Targeted therapy": [
+        "Tyrosine kinase inhibitors",
+        "EGFR inhibitors",
+        "HER2 inhibitors",
+        "BRAF inhibitors",
+        "PARP inhibitors",
+    ],
+    "Hormone therapy": [
+        "Hormone replacement therapy (HRT)",
+        "Anti-androgen therapy",
+        "Selective estrogen receptor modulators (SERMs)",
+        "Aromatase inhibitors",
+        "Gonadotropin-releasing hormone (GnRH) agonists",
+    ],
+    "Stem cell transplantation": [
+        "Autologous stem cell transplant",
+        "Allogeneic stem cell transplant",
+        "Hematopoietic stem cell transplant (HSCT)",
+        "Bone marrow transplant",
+    ],
+    "Previous clinical trial participation": [
+        "Participation in phase I clinical trials",
+        "Participation in phase II clinical trials",
+        "Participation in phase III clinical trials",
+        "Participation in interventional trials",
+        "Participation in observational trials",
+    ],
+    "Prior use of specific medications (e.g., biologics, monoclonal antibodies)": [
+        "TNF inhibitors",
+        "Interleukin inhibitors",
+        "Rituximab",
+        "Anti-VEGF agents",
+        "IL-6 receptor antagonists",
+    ],
+    "Previous medical device implantation (e.g., pacemaker, stent)": [
+        "Cardiac pacemaker",
+        "Stent placement (coronary, vascular)",
+        "Orthopedic implants",
+        "Cochlear implant",
+        "Neurostimulator",
+    ],
+}
+
+(Examples)
+Input: "A 62-year-old African-American man presented with left upper and lower extremity weakness, associated with dark visual spot in right eye, right facial numbness, facial drop and slurred speech. He denied dyspnea, headache, palpitations, chest pain, fever, dizziness, bowel or urinary incontinence, loss of consciousness. His medical history was significant for hypertension, hyperlipidemia and hypothyroidism. He smokes cigarette 1 pack per day for 40 years and alcohol consumption of 5 to 6 beers per week. He is not aware about his family history. He is using Levothyroxine, Atorvastatin and HTCZ. His vital signs were stable in the primary evaluation. Left-sided facial droop, dysarthria, and left-sided hemiplegia were seen in the physical exam. His National Institutes of Health Stroke Scale (NIHSS) score was calculated as 7. Initial CT angiogram of head and neck reported no acute intracranial findings. Intravenous recombinant tissue plasminogen activator (t-PA) was administered as well as high-dose statin therapy. The patient was admitted to the intensive care unit to be monitored for 24 hours. MRI of the head revealed an acute 1.7-cm infarct of the right periventricular white matter and posterior right basal ganglia."
+
+Output: {"Disease characteristics":[Presentation with left upper and lower extremity weakness, Dark visual spot in the right eye, Right facial numbness, Facial drop, Slurred speech, Left-sided facial droop, Left-sided hemiplegia, Acute 1.7-cm infarct of the right periventricular white matter and posterior right basal ganglia, NIH Stroke Scale (NIHSS) score of 7, Medical history of hypertension, Medical history of hyperlipidemia, Medical history of hypothyroidism, Smoking history: 1 pack of cigarettes per day for 40 years, Alcohol consumption: 5 to 6 beers per week], "demographic characteristics": [Age: 62-year-old, African-American ethnicity], "prior treatment": [Use of Levothyroxine, Use of Atorvastatin, Use of HTCZ (Hydrochlorothiazide), Intravenous recombinant tissue plasminogen activator (t-PA) administration, High-dose statin therapy, Admission to the intensive care unit for 24-hour monitoring], "Suggested Diagnosis": [ischemic stroke]}
+
+
+
+
+
+
+
+
+
+
+
+
