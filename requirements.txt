@@ -1,0 +1,23 @@
+# Core dependencies
+numpy>=1.24.0
+scipy>=1.10.0
+
+# Model APIs
+ollama>=0.1.0
+openai>=1.0.0
+
+# Evaluation
+trectools>=0.0.47
+
+# Ontology
+owlready2>=0.47
+
+# Information Retrieval
+rank-bm25>=0.2.2
+
+# Natural Language Processing
+nltk>=3.8.0
+
+# Hashing
+mmh3>=4.0.0
+
